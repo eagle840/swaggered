@@ -1,0 +1,2 @@
+# swaggered
+swagger code gen
