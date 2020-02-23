@@ -11,4 +11,4 @@ connexion == 1.1.15  <= change to **2.6.0**
 python_dateutil == 2.6.0
 setuptools >= 21.0.0
 
-* note:  install pip flask[swagger-ui]    <= double check
+* note:  a component is missing, run: pip3 install connexion[swagger-ui]
