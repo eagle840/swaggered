@@ -1,10 +1,22 @@
 import connexion
 import six
+import mysql.connector
 
 from swagger_server.models.people import People  # noqa: E501
 from swagger_server.models.person import Person  # noqa: E501
 from swagger_server.models.person_data import PersonData  # noqa: E501
 from swagger_server import util
+
+
+mydb = mysql.connector.connect(
+   host="localhost",
+   user="root",
+   passwd="1234",
+   auth_plugin="mysql_native_password"
+   )
+
+# print(mydb)
+
 
 
 def people_add(person):  # noqa: E501

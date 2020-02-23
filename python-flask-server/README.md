@@ -16,6 +16,8 @@ To run the server, please execute the following from the root directory:
 ```
 pip3 install -r requirements.txt
 pip3 install connexion[swagger-ui]    # this doesn't load in the requirements fill
+pip3 install mysql-connector-python
+pip3 install mysql-connector
 python3 -m swagger_server
 ```
 
