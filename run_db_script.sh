@@ -12,6 +12,10 @@ docker cp db_script.sql dbtx:/.
 
 docker restart dbtx
 
+docker exec -it dbtx /bin/bash
+
+
+
 
 
 
