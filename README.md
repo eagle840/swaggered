@@ -6,7 +6,9 @@ swagger code gen
 3. paste the folder into a new repo (ie this one)
 4. clone it to pc and work file
 
-(note, change the swagger codegen requirements.txt to show
+ * note, change the swagger codegen requirements.txt to show
 connexion == 1.1.15  <= change to **2.6.0**
 python_dateutil == 2.6.0
 setuptools >= 21.0.0
+
+* note:  install pip flask[swagger-ui]    <= double check
