@@ -6,18 +6,16 @@ docker cp dbtx:/etc/mysql/my.cnf .
 cat add.txt >> my.cnf
 docker cp my.cnf dbtx:/etc/mysql/.
 
-# copy db script over
+# copy db script  and csv over
 
 docker cp db_script.sql dbtx:/.
 docker cp titanic.csv dbtx:/.
 
 docker restart dbtx
 
+docker exec -it dbtx mysql < db_script.sql
+
 docker exec -it dbtx /bin/bash
-
-
-
-
 
 
 
