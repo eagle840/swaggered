@@ -12,7 +12,8 @@ mydb = mysql.connector.connect(
    host="localhost",
    user="root",
    passwd="1234",
-   auth_plugin="mysql_native_password"
+   auth_plugin="mysql_native_password",
+   database="titanic"
    )
 
 # print(mydb)
