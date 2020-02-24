@@ -15,7 +15,8 @@ echo restarting mysql server dbtx
 docker restart dbtx
 
 echo running db input script
-docker exec -it dbtx mysql < db_script.sql
+# docker exec -it dbtx mysql < db_script.sql
+docker exec -d dbtx  /usr/bin/mysql -uroot -p1234 < db_script.sql
 
 echo cmd prompt sql server
 docker exec -it dbtx /bin/bash
