@@ -9,6 +9,7 @@ docker cp my.cnf dbtx:/etc/mysql/.
 # copy db script over
 
 docker cp db_script.sql dbtx:/.
+docker cp titanic.csv dbtx:/.
 
 docker restart dbtx
 
