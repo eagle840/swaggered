@@ -17,10 +17,17 @@ docker restart dbtx
 
 echo running db input script
 # docker exec -it dbtx mysql < db_script.sql
-# [failed] docker exec -d dbtx  /usr/bin/mysql -uroot -p1234 < db_script.sql
+# [failed  noted uses -d] docker exec -d dbtx  /usr/bin/mysql -uroot -p1234 < db_script.sql
 # [failed, but manually it works] docker exec -d dbtx /bin/sh -c ./runsql.sh
-
-
+echo checking version
+docker exec  dbtx  /usr/bin/mysql --version
+echo checking db's
+docker exec  dbtx  /usr/bin/mysql -uroot -p1234 -e "show status;"
+docker exec  dbtx  /usr/bin/mysql -uroot -p1234 -e "show databases;"
+echo running script
+docker exec  dbtx  /usr/bin/mysql -uroot -p1234 < db_script.sql
+echo checkig databases
+docker exec  dbtx  /usr/bin/mysql -uroot -p1234 -e "show databases;"
 
 echo cmd prompt sql server
 docker exec -it dbtx /bin/bash
