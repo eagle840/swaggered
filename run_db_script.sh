@@ -18,7 +18,9 @@ docker restart dbtx
 echo running db input script
 # docker exec -it dbtx mysql < db_script.sql
 # [failed] docker exec -d dbtx  /usr/bin/mysql -uroot -p1234 < db_script.sql
-docker exec -d dbtx /bin/sh -c ./runsql.sh
+# [failed, but manually it works] docker exec -d dbtx /bin/sh -c ./runsql.sh
+
+
 
 echo cmd prompt sql server
 docker exec -it dbtx /bin/bash
