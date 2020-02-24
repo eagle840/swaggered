@@ -23,5 +23,9 @@ create table passengers (
 # Load data titanic.csv into table passengers
 # note that LOAD DATA must be enbled 
 # see https://stackoverflow.com/questions/10762239/mysql-enable-load-data-local-infile
+
+# confirm we are using titanic db
+use titanic;
      
+# load data into titanic/passengers     
 LOAD DATA LOCAL INFILE '/titanic.csv' INTO TABLE passengers FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 ROWS (survived,passengerClass,name,sex,age,siblingsOrSpousesAboard,parentsOrChildrenAboard,fare,@uuid)  SET uuid = UUID() ;
