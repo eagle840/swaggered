@@ -2,9 +2,11 @@ echo pulling/running sql
 docker run -d --name dbtx -e MYSQL_ROOT_PASSWORD=1234 mysql
 sleep 10
 
-echo change the my.cnf to allow LOAD DATA INLINE
-docker cp dbtx:/etc/mysql/my.cnf .
-cat add.txt >> my.cnf
+# following lines removed and just replaced with a my.cnf ready to go
+# echo change the my.cnf to allow LOAD DATA INLINE
+# docker cp dbtx:/etc/mysql/my.cnf .
+# cat add.txt >> my.cnf
+echo copy my.cnf to container
 docker cp my.cnf dbtx:/etc/mysql/.
 
 echo copy files to dbtx
