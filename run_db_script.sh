@@ -21,7 +21,7 @@ echo running db input script
 # [failed, but manually it works] docker exec -d dbtx /bin/sh -c ./runsql.sh
 echo checking version
 docker exec  dbtx  /usr/bin/mysql --version
-echo checking db's
+echo checking dbs
 docker exec  dbtx  /usr/bin/mysql -uroot -p1234 -e "show status;"
 docker exec  dbtx  /usr/bin/mysql -uroot -p1234 -e "show databases;"
 echo running script
