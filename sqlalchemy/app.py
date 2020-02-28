@@ -1,7 +1,11 @@
+""" this  is the docstring that pylint requests """
 # from: https://www.youtube.com/watch?v=PTZiDnuC86g
+# https://github.com/bradtraversy/flask_sqlalchemy_rest
 # look up info on pdb as well
-
+# apt install sqlite3
+# pip install flask flask_sqlalchemy flask_marshmallow
 #  init db from python
+# $python
 # from app import db
 # db.create_all()
 #
@@ -25,6 +29,7 @@ ma = Marshmallow(app)
 
 # Product class/model
 class Product(db.Model):
+    """ class to hold product data """
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), unique=True)
     description = db.Column(db.String(200))
@@ -33,6 +38,7 @@ class Product(db.Model):
 
 # product schema
 class ProductSchema(ma.Schema):
+    """ serializer? """
     class Meta:
         fields = ('id', 'name', 'description', 'price', 'qty')
 # init schema
@@ -47,6 +53,7 @@ def get():
 
 @app.route('/product', methods=['POST'])
 def add_product():
+    """ add a single product """
     name = request.json['name']
     description = request.json['description']
     price = request.json['price']
