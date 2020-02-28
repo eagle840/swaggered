@@ -1,3 +1,14 @@
+ThIs file is dead
+
+don't use
+
+see sqlalchemy/app
+
+then delete this file
+
+
+
+
 # from: https://www.youtube.com/watch?v=PTZiDnuC86g
 # look up info on pdb as well
 
