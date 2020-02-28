@@ -1,6 +1,7 @@
 # from: https://www.youtube.com/watch?v=PTZiDnuC86g
 # look up info on pdb as well
 #
+# export FLASK_APP=app.py; flask run --host 0.0.0.0 --port 8500
 #
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
@@ -39,7 +40,7 @@ products_schema = ProductSchema(many=True, strict=True)
 def get():
         return jsonify({ 'msg': 'Hello world'})  # turn dic into json
 
-@app.route('/product', methods['POST'])
+@app.route('/product', methods=['POST'])
 def add_product():
         name = request.json['name']
         description = request.json['description']
@@ -54,14 +55,14 @@ def add_product():
 	return product_schema.jsonify(new_product)
 
 # Get all products
-@app.route('/product', methods['GET'])
+@app.route('/product', methods=['GET'])
 def get_products():
 	all_products = Product.query.all()
 	result = products_schema.dump(all_products)
 	return jsonify(result.data)
 
 # Get single product
-@app.route('/product/<id>', methods['GET'])
+@app.route('/product/<id>', methods=['GET'])
 def get_product(id):
 	products = Product.query.get(id)
 	return product_schema.jsonify(product)
