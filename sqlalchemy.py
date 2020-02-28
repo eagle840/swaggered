@@ -1,5 +1,9 @@
 # from: https://www.youtube.com/watch?v=PTZiDnuC86g
 # look up info on pdb as well
+
+#  init db from python
+# from app import db
+# db.create_all()
 #
 # export FLASK_APP=app.py; flask run --host 0.0.0.0 --port 8500
 #
