@@ -42,6 +42,7 @@ products_schema = ProductSchema(many=True, strict=True)
 
 @app.route('/', methods=['GET'])
 def get():
+    """ there should be a description until the def, just like this"""
     return jsonify({'msg': 'Hello world'})  # turn dic into json
 
 @app.route('/product', methods=['POST'])
