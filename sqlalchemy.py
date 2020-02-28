@@ -7,10 +7,10 @@
 #
 # export FLASK_APP=app.py; flask run --host 0.0.0.0 --port 8500
 #
+import os
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
-import os
 
 # init app
 app = Flask(__name__)
@@ -34,7 +34,7 @@ class Product(db.Model):
 # product schema
 class ProductSchema(ma.Schema):
     class Meta:
-        fields = ('id','name','description','price','qty')
+        fields = ('id', 'name', 'description', 'price', 'qty')
 # init schema
 product_schema = ProductSchema(strict=True)
 products_schema = ProductSchema(many=True, strict=True)
@@ -42,7 +42,7 @@ products_schema = ProductSchema(many=True, strict=True)
 
 @app.route('/', methods=['GET'])
 def get():
-    return jsonify({ 'msg': 'Hello world'})  # turn dic into json
+    return jsonify({'msg': 'Hello world'})  # turn dic into json
 
 @app.route('/product', methods=['POST'])
 def add_product():
@@ -74,20 +74,20 @@ def get_product(id):
 
 @app.route('/product/<id>', methods=['PUT'])
 def update_product(id):
-   product = Product.query.get(id)
-   name = request.json['name']
-   description = request.json['description']
-   price = request.json['price']
-   qty = request.json['qty']
+    product = Product.query.get(id)
+    name = request.json['name']
+    description = request.json['description']
+    price = request.json['price']
+    qty = request.json['qty']
+ 
+    product.name = name
+    product.description = description
+    product.price = price
+    product.qty = qty
+    
+    db.session.committ()
 
-   product.name = name
-   product.description = description
-   product.price = price
-   product.qty = qty
-   
-   db.session.committ()
-
-   return product_schema.jsonify(product)
+    return product_schema.jsonify(product)
 
 
 
