@@ -86,7 +86,7 @@ def update_product(id):
     product.qty = qty
     
     db.session.committ()
-
+    
     return product_schema.jsonify(product)
 
 
